@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <!-- normalize -->
+    <link rel="stylesheet" href="./normalize.css" />
+    <!-- main css -->
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <form class="form task-form">
+      <h4 class="title">task manager</h4>
+      <div class="form-control">
+        <input
+          type="text"
+          id="task-input"
+          class="form-input task-input"
+          placeholder="e.g. wash dishes"
+        />
+        <button type="submit" class="btn submit-btn">submit</button>
+      </div>
+      <div class="status-container">
+        <small class="form-alert">there was an error</small>
+      </div>
+    </form>
+    <section class="task-container">
+      <div class="loading-task">
+        <span class="loading"></span>
+      </div>
+      <div class="single-task task-completed">
+        <h5>
+          <i class="fa-regular fa-check-circle"></i>
+          task name
+        </h5>
+        <div class="task-links">
+          <a href="task.html"><i class="fa-solid fa-edit"></i></a>
+          <button type="button"><i class="fa-solid fa-trash"></i></button>
+        </div>
+      </div>
+      <div class="single-task">
+        <h5>
+          <i class="fa-regular fa-check-circle"></i>
+          task name
+        </h5>
+        <div class="task-links">
+          <a href="task.html"><i class="fa-solid fa-edit"></i></a>
+          <button type="button"><i class="fa-solid fa-trash"></i></button>
+        </div>
+      </div>
+    </section>
+    <!-- font-awesome -->
+    <script
+      src="https://kit.fontawesome.com/ecdf798431.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+  </body>
+</html>
