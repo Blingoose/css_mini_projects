@@ -304,6 +304,11 @@ Project
   display: block;
 }
 
+.tasks {
+  display: grid;
+  gap: 1rem;
+}
+
 .single-task {
   background: var(--white);
   border-radius: var(--borderRadius);
@@ -311,9 +316,10 @@ Project
   padding: 1rem 2.5rem;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
   transition: var(--transition);
   gap: 0 2rem;
+  height: 5rem;
+  align-items: center;
 }
 
 .single-task:hover {
@@ -322,6 +328,8 @@ Project
 
 .single-task h5 {
   margin-bottom: 0;
+  display: flex;
+  align-items: center;
 }
 
 .single-task .fa-check-circle {
@@ -352,6 +360,10 @@ Project
 
 .task-completed h5 {
   text-decoration: line-through;
+}
+
+.task-completed h5 span {
+  text-decoration: none;
 }
 
 .task-completed .fa-check-circle {
