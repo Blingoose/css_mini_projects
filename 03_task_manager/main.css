@@ -318,7 +318,6 @@ Project
   justify-content: space-between;
   transition: var(--transition);
   gap: 0 2rem;
-  height: 5rem;
   align-items: center;
 }
 
@@ -344,15 +343,15 @@ Project
   font-size: 0.75rem;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.7rem;
 }
 
-.task-links a {
-  color: var(--black);
+.edit-btn {
+  color: var(--green-dark);
 }
 
-.task-links button {
-  color: var(--black);
+.delete-btn {
+  color: var(--red-dark);
   background: transparent;
   border: transparent;
   cursor: pointer;
@@ -368,4 +367,82 @@ Project
 
 .task-completed .fa-check-circle {
   visibility: visible;
+}
+
+/* testing */
+.delete-btn,
+.edit-btn {
+  position: relative;
+  padding: 0;
+  line-height: 1rem;
+}
+
+.delete-btn:hover > i,
+.edit-btn:hover > i {
+  transition: var(--transition);
+  opacity: 0.6;
+}
+
+.delete-btn::before,
+.edit-btn::before {
+  content: "";
+  text-align: center;
+  position: absolute;
+  bottom: 160%;
+  left: -20%;
+  border-radius: var(--borderRadius);
+  padding: 0.3rem 0;
+  min-width: 75px;
+  z-index: 2;
+  opacity: 0;
+}
+
+.delete-btn::before {
+  content: "delete task";
+  background-color: var(--red-light);
+  color: var(--red-dark);
+}
+
+.edit-btn::before {
+  content: "edit task";
+  background-color: var(--green-light);
+  color: var(--green-dark);
+}
+
+.delete-btn::after,
+.edit-btn::after {
+  position: absolute;
+  content: "";
+  bottom: 115%;
+  left: 0%;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  border-top: 14px solid var(--grey-300);
+  z-index: 1;
+  opacity: 0;
+}
+
+.delete-btn:hover::before,
+.delete-btn:hover::after,
+.edit-btn:hover::before,
+.edit-btn:hover::after {
+  opacity: 1;
+  transition: var(--transition);
+  transition-delay: 0.7s;
+}
+
+@media screen and (max-width: 400px) {
+  .delete-btn::before,
+  .edit-btn::before {
+    bottom: 160%;
+    left: 20%;
+    transform: translateX(-60%);
+  }
+
+  .delete-btn::after,
+  .edit-btn::after {
+    bottom: 115%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
