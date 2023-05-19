@@ -374,7 +374,7 @@ Project
 .edit-btn {
   position: relative;
   padding: 0;
-  line-height: 1rem;
+  line-height: 0.75rem;
 }
 
 .delete-btn:hover > i,
@@ -391,10 +391,11 @@ Project
   bottom: 160%;
   left: -20%;
   border-radius: var(--borderRadius);
-  padding: 0.3rem 0;
-  min-width: 75px;
+  padding: 0.3rem;
+  min-width: 60px;
   z-index: 2;
   opacity: 0;
+  font-size: 0.65rem;
 }
 
 .delete-btn::before {
