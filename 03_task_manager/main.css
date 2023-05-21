@@ -451,20 +451,21 @@ Project
 
 /* edit task section */
 .edit-modal {
+  height: 100%;
+  width: 100%;
   background: linear-gradient(
     rgba(var(--blackRGB) / 0.95),
     rgba(var(--blackRGB) / 0.95)
   );
-  width: 100vw;
-  height: 100vh;
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s var(--fast-bezier), transform 0.3s var(--fast-bezier);
+  transition: max-width 0.3s var(--fast-bezier), opacity 0.3s var(--fast-bezier),
+    transform 0.3s var(--fast-bezier);
+  overflow: hidden;
 }
 
 .edit-task-form {
@@ -529,8 +530,10 @@ Project
 .modal-checkbox:checked + .edit-modal {
   opacity: 1;
   transform: translateX(0);
+  max-width: 100%;
 }
 
 .modal-checkbox:not(:checked) + .edit-modal {
   transform: translateX(100%);
+  max-width: 0%;
 }
