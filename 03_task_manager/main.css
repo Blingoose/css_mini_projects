@@ -36,6 +36,8 @@ html {
   /* rest of the colors */
   --black: #222;
   --white: #fff;
+  --blackRGB: 34 34 34;
+  --whiteRGB: rgb(255, 255, 255);
   --red-light: #f8d7da;
   --red-dark: #842029;
   --green-light: #d1e7dd;
@@ -53,6 +55,9 @@ html {
   --transition: 0.3s ease-in-out all;
   --max-width: 1120px;
   --fixed-width: 600px;
+
+  /* cubic bezier curve */
+  --fast-bezier: cubic-bezier(0.77, 0, 0.175, 1);
 
   /* box shadow*/
   --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -255,12 +260,12 @@ ul {
 }
 
 /* tooltip */
-
+/* default: top right position */
 .tooltip {
   position: relative;
   display: inline-block;
   padding: 0;
-  line-height: 0.75rem;
+  line-height: 1rem;
 }
 
 .tooltip::before,
@@ -274,7 +279,7 @@ ul {
 .tooltip::before {
   content: attr(data-tooltip);
   text-align: center;
-  bottom: 160%;
+  bottom: 140%;
   left: -20%;
   border-radius: var(--borderRadius);
   padding: 0.3rem;
@@ -290,7 +295,7 @@ ul {
   content: "";
   width: 0;
   height: 0;
-  bottom: 115%;
+  bottom: 100%;
   left: 0%;
   border-right: 8px solid transparent;
   border-left: 8px solid transparent;
@@ -304,19 +309,34 @@ ul {
   opacity: 1;
 }
 
+/* tooltip top left position */
+.tooltip--top-left::before {
+  bottom: 140%;
+  left: 0;
+  transform: translateX(-65%);
+}
+
+.tooltip--top-left::after {
+  bottom: 100%;
+  left: 0%;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  border-top: 10px solid var(--grey-500);
+}
+
 /*
 =============== 
 Project
 ===============
 */
 
+/* task form section */
 .task-form {
   margin-top: 6rem;
   min-width: 200px;
 }
 
 .submit-btn {
-  width: 100%;
   margin-top: 1rem;
 }
 
@@ -338,6 +358,7 @@ Project
   }
 }
 
+/* tasks section */
 .task-container {
   width: 90vw;
   max-width: var(--fixed-width);
@@ -400,6 +421,7 @@ Project
 
 .edit-btn {
   color: var(--green-dark);
+  cursor: pointer;
 }
 
 .delete-btn {
@@ -407,6 +429,12 @@ Project
   background: transparent;
   border: transparent;
   cursor: pointer;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+  transition: var(--transition);
+  opacity: 0.6;
 }
 
 .task-completed h5 {
@@ -419,4 +447,90 @@ Project
 
 .task-completed span {
   visibility: visible;
+}
+
+/* edit task section */
+.edit-modal {
+  background: linear-gradient(
+    rgba(var(--blackRGB) / 0.95),
+    rgba(var(--blackRGB) / 0.95)
+  );
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s var(--fast-bezier), transform 0.3s var(--fast-bezier);
+}
+
+.edit-task-form {
+  display: grid;
+  position: relative;
+  gap: 1rem;
+  min-width: 20rem;
+}
+
+.edit-task-form h4 {
+  text-align: center;
+}
+
+.edit-task-form .form-control {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  gap: 0 1rem;
+}
+
+.form-control p {
+  margin: 0;
+}
+
+.edit-task-form .form-label {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.completed-checkbox-container {
+  justify-self: start;
+}
+
+.edit-task-alert {
+  text-align: center;
+}
+
+.close-modal {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: var(--red-dark);
+}
+
+.xmark-container {
+  cursor: pointer;
+  height: 24px;
+  width: 18px;
+  display: inline-block;
+  transition: var(--transition);
+}
+
+.xmark-container:hover {
+  opacity: 0.6;
+}
+
+.modal-checkbox {
+  display: none;
+}
+
+.modal-checkbox:checked + .edit-modal {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.modal-checkbox:not(:checked) + .edit-modal {
+  transform: translateX(100%);
 }

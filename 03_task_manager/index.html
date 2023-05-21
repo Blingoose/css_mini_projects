@@ -20,7 +20,7 @@
           class="form-input task-input"
           placeholder="e.g. wash dishes"
         />
-        <button type="submit" class="btn submit-btn">submit</button>
+        <button type="submit" class="btn submit-btn btn-block">submit</button>
       </div>
       <div class="status-container">
         <small class="form-alert">there was an error</small>
@@ -39,15 +39,15 @@
             task name
           </h5>
           <div class="task-links">
-            <a
-              href="task.html"
+            <label
+              for="close-modal"
               class="edit-btn tooltip"
               data-tooltip="edit task"
               ><i class="fa-solid fa-edit fa-fw"></i
-            ></a>
+            ></label>
             <button
               type="button"
-              class="delete-btn tooltip"
+              class="delete-btn tooltip tooltip--top-left"
               data-tooltip="delete task"
             >
               <i class="fa-solid fa-trash fa-fw"></i>
@@ -62,20 +62,70 @@
             task name
           </h5>
           <div class="task-links">
-            <a
-              href="task.html"
+            <label
+              for="close-modal"
               class="edit-btn tooltip"
               data-tooltip="edit task"
               ><i class="fa-solid fa-edit fa-fw"></i
-            ></a>
+            ></label>
             <button
               type="button"
-              class="delete-btn tooltip"
+              class="delete-btn tooltip tooltip--top-left"
               data-tooltip="delete task"
             >
               <i class="fa-solid fa-trash fa-fw"></i>
             </button>
           </div>
+        </div>
+      </div>
+    </section>
+    <input
+      type="checkbox"
+      name="close-modal"
+      id="close-modal"
+      class="modal-checkbox"
+    />
+    <section class="section edit-modal">
+      <div class="form edit-task-form">
+        <h4>edit task</h4>
+        <div class="form-control">
+          <label class="form-label" for="task-edit-id">task ID</label>
+          <p class="task-edit-id">1234567890</p>
+        </div>
+        <div class="form-control">
+          <label class="form-label" for="task-edit-name">name</label>
+          <input
+            type="text"
+            name="name"
+            id="task-edit-name"
+            class="task-edit-name form-input"
+            value="feed the cat"
+          />
+        </div>
+        <div class="form-control">
+          <label class="form-label" for="completed">completed</label>
+          <div
+            class="completed-checkbox-container tooltip"
+            data-tooltip="mark the task as completed"
+          >
+            <input
+              type="checkbox"
+              name="completed"
+              class="task-edit-completed"
+            />
+          </div>
+        </div>
+        <button class="btn btn-block btn task-edit-btn" type="button">
+          confirm
+        </button>
+        <small class="form-alert edit-task-alert">there was an error</small>
+        <div
+          class="close-modal tooltip tooltip--top-left"
+          data-tooltip="close edit task"
+        >
+          <label class="xmark-container" for="close-modal">
+            <i class="fa-solid fa-xmark"></i>
+          </label>
         </div>
       </div>
     </section>
