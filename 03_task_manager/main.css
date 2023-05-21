@@ -534,6 +534,7 @@ Project
 }
 
 .modal-checkbox:not(:checked) + .edit-modal {
+  opacity: 0;
   transform: translateX(100%);
   max-width: 0%;
 }
