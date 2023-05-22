@@ -431,8 +431,8 @@ Project
   cursor: pointer;
 }
 
-.edit-btn:hover,
-.delete-btn:hover {
+.edit-btn:hover > i,
+.delete-btn:hover > i {
   transition: var(--transition);
   opacity: 0.6;
 }
